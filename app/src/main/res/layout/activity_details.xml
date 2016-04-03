@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/activity_margin"
+    android:layout_marginRight="@dimen/activity_margin"
+    android:layout_marginTop="@dimen/activity_margin"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context="com.github.mobile.smarttasks.android.activity.DetailsActivity">
+
+
+    <FrameLayout
+        android:id="@+id/placeholder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/placeholder"
+        android:layout_marginTop="@dimen/task_bottom"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/btn_resolve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_positive_background"
+            android:text="Resolve"
+            />
+
+        <Button
+            android:id="@+id/cant_resolve"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/btn_negative_background"
+            android:text="Can't resolve"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/comment_linear"
+        android:layout_below="@id/buttons_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <EditText
+            android:id="@+id/comment_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/comment_save_btn"
+            android:text="@android:string/ok"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/state_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/buttons_linear"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginBottom="85dp"
+        android:src="@drawable/sign_resolved"
+        android:visibility="gone"/>
+
+</RelativeLayout>

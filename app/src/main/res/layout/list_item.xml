@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="@dimen/width"
+                android:layout_height="wrap_content"
+                android:background="@drawable/item_background"
+                android:minHeight="@dimen/minimum_height"
+                android:id="@+id/root_layout"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+    <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+        android:id="@+id/title_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/task_middle_top"
+        android:layout_marginTop="@dimen/task_top"
+        android:text="Task Title"
+        android:textColor="@color/app_red"
+        android:textSize="@dimen/larger_text_size"
+        app:typeface="@string/AmsiBold"/>
+
+    <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+        android:id="@+id/priority"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/title_text"
+        android:background="@drawable/priority_circle"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/app_light"/>
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/separator_height"
+        android:layout_below="@id/title_text"
+        android:background="@android:color/darker_gray"/>
+
+    <LinearLayout
+        android:id="@+id/left_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator"
+        android:layout_marginBottom="@dimen/task_bottom"
+        android:layout_marginTop="@dimen/task_middle_bottom"
+        android:orientation="vertical">
+
+        <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+            android:id="@+id/due_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/days_left_bellow"
+            android:text="Due date"
+            android:textColor="@color/app_dark"
+            android:textSize="@dimen/smaller_text_size"
+            app:typeface="@string/AmsiRegular"
+            />
+
+        <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+            android:id="@+id/due_date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apr 24 2016"
+            android:textColor="@color/app_red"
+            android:textSize="@dimen/larger_text_size"
+            app:typeface="@string/AmsiBold"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/separator"
+        android:layout_below="@id/separator"
+        android:layout_marginBottom="@dimen/task_bottom"
+        android:layout_marginTop="@dimen/task_middle_bottom"
+        android:id="@+id/dates_linear"
+        android:orientation="vertical">
+
+        <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+            android:id="@+id/left_caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/days_left_bellow"
+            android:text="Days left"
+            android:textColor="@color/app_dark"
+            android:textSize="@dimen/smaller_text_size"
+            app:typeface="@string/AmsiRegular"/>
+
+        <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+            android:id="@+id/days_left_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="12"
+            android:textColor="@color/app_red"
+            android:textSize="@dimen/larger_text_size"
+            app:typeface="@string/AmsiBold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/additional_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/dates_linear"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:background="@android:color/darker_gray"/>
+
+        <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Some kinda description, longer text describing, looking to go multiline."
+            android:textColor="@color/app_dark"
+            android:textSize="@dimen/smaller_text_size"
+            app:typeface="@string/AmsiRegular"
+            android:layout_marginBottom="@dimen/task_bottom"
+            android:layout_marginTop="@dimen/task_bottom"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/separator_height"
+            android:background="@android:color/darker_gray"/>
+
+        <com.github.mobile.smarttasks.android.ui.TypefacedTextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Unresolved"
+            android:textColor="@color/app_orange"
+            android:textSize="@dimen/smaller_text_size"
+            app:typeface="@string/AmsiRegular"
+            android:layout_marginBottom="@dimen/task_bottom"
+            android:layout_marginTop="@dimen/task_bottom"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
