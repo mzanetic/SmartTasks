@@ -27,6 +27,7 @@ public class RetrofitService {
 
     public static <S> S createService(Class<S> serviceClass) {
 
+        // GsonBuilder for the input date format
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd HH:mm:ss")
                 .create();

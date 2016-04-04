@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import com.github.mobile.smarttasks.R;
 
+/**
+ * TextView with font loading
+ */
 public class TypefacedTextView extends TextView {
 
 

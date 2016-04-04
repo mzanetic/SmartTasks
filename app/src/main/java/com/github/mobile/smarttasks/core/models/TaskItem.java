@@ -9,6 +9,9 @@ import com.j256.ormlite.field.DatabaseField;
 
 import java.util.Date;
 
+/**
+ * Class used when getting data from the server and for the adapters data
+ */
 public class TaskItem implements Parcelable {
 
     public static final String TARGET_DATE = "TargetDate";

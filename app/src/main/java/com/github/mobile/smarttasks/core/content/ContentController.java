@@ -21,15 +21,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Class containing tasks loaded in a map with a pageKey as their key value.
+ */
 @EBean(scope = EBean.Scope.Singleton)
 public class ContentController {
 
     private static final String LOG_TAG = ContentController.class.getName();
 
-    public static final String DATE_FORMAT     = "d MMM yyyy";
+    // Format for the displayed dates
+    public static final String DATE_FORMAT = "d MMM yyyy";
+
+    // Format for the pageKey value, each pageKey corresponds to one calendar day
     public static final String MAP_DATE_FORMAT = "ddMMyyyy";
 
-    private List<TaskItem>                  taskItems;
+    private List<TaskItem> taskItems;
+
+    // Map containing tasks, String is the pageKey taskItem value
     private HashMap<String, List<TaskItem>> dateMap;
 
     @Bean
@@ -46,6 +54,11 @@ public class ContentController {
         dateMap = new HashMap<>();
     }
 
+    /**
+     * Used to load the tasks and store them in the database
+     *
+     * @throws Exception
+     */
     public void getAndStoreTasks() throws Exception {
         TasksResponse response = tasksController.getTasks().execute().body();
         taskItems = response.getTasks();
@@ -112,6 +125,12 @@ public class ContentController {
         return unresolved;
     }
 
+    /**
+     * Will retrieve all the database entries for the specified key value
+     *
+     * @param key Day's date value formatted with MAP_DATE_FORMAT
+     * @return List of TaskItems from dateMap
+     */
     public List<TaskItem> getDayItems(String key) {
         List<TaskItem> input = dateMap.get(key);
         return sortTasks(key, input);
@@ -129,6 +148,11 @@ public class ContentController {
         return lhs < rhs ? -1 : (lhs == rhs ? 0 : 1);
     }
 
+    /**
+     * Updates the task item within the dateMap and updates the task in the database
+     *
+     * @param taskItem
+     */
     public void updateTask(TaskItem taskItem) {
         List<TaskItem> items = dateMap.get(taskItem.getPageKey());
         if (items.contains(taskItem)) {
@@ -145,6 +169,12 @@ public class ContentController {
 
     }
 
+    /**
+     * Will clear all all entries with the key and fetch new ones from the database.
+     * After the database loading, this method will also sort.
+     *
+     * @param key
+     */
     public void refreshDay(String key) {
         dateMap.get(key).clear();
         List<TaskItem> dayItems = null;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SmartTasks</string>
+    <string name="app_name">Smart Tasks</string>
     <string name="title_activity_splash">SplashActivity</string>
     <string name="AmsiBold">fonts/AmsiPro-Bold.otf</string>
     <string name="AmsiRegular">fonts/AmsiPro-Regular.otf</string>

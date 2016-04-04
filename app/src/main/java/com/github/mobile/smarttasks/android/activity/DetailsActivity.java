@@ -65,8 +65,13 @@ public class DetailsActivity extends Activity {
         addTaskView(false);
     }
 
+    /**
+     * Adds the task view to the placeholder
+     * @param refresh False only after the initial loading, true otherwise
+     */
     void addTaskView(boolean refresh) {
         if (refresh) placeholder.removeAllViews();
+
         TaskItemView taskItemView = TaskItemView_.build(this);
         taskItemView.bind(taskItem);
         taskItemView.showDetails(taskItem);

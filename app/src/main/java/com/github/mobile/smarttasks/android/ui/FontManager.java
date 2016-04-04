@@ -21,6 +21,7 @@ public class FontManager {
     public Typeface getFont(Context context, String asset) {
         AssetManager manager = context.getAssets();
 
+        // Typeface loading or retrieval
         synchronized (fonts) {
             if (fonts.containsKey(asset))
                 return fonts.get(asset);
