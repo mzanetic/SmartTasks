@@ -110,6 +110,7 @@ public class DetailsActivity extends Activity {
 
     void changeDrawableState(Status status) {
         Drawable drawable;
+        
         if (status.equals(Status.RESOLVED))
             drawable = getDrawableVersionSafe(R.drawable.sign_resolved);
         else drawable = getDrawableVersionSafe(R.drawable.unresolved_sign);
